@@ -12,7 +12,7 @@ app.use('/compras', require('./routes/rutas'));
 
 app.listen(process.env.PORTEXPRESS, (err) => {
     if (err) throw new Error(err);
-    console.log('Servidor corriendo en puerto', process.env.PORTEXPRESS);
+    console.log('Servidor corriendo en puerto', process.env.PORT);
 });
 
 
