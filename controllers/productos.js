@@ -10,7 +10,7 @@ CargarProductos = async(req, res = response ) => {
 
      
         
-        const query = "SELECT id , nombre, finalizado FROM productos ORDER BY nombre";
+        const query = "SELECT id , nombre, finalizado FROM productos WHERE finalizado = false ORDER BY nombre";
        
         data = await executeQuery(query);  
         const mappedData = data.map(row => ({
