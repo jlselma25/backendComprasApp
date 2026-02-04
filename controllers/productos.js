@@ -57,29 +57,29 @@ GuardarProducto = async(req, res = response ) => {
 
 
 
-//    EliminarIncidencia = async(req, res = response ) => {
+   EliminarProducto = async(req, res = response ) => {
    
-//     const { id} = req.query;    
+    const { id} = req.query;    
 
    
-//    try{      
+   try{      
         
-//         const query ="DELETE FROM IncidenciasManteTiendas WHERE id =" + id;       
+        const query ="DELETE FROM productos WHERE id =" + id;       
                        
-//         await executeQuery(query,process.env.IP);  
-//          return res.json({
-//             resul: true,
+        await executeQuery(query,process.env.IP);  
+         return res.json({
+            resul: true,
             
-//         });
-//     }catch(error){
-//         console.log(error);
-//         return res.json({
-//             resul: false,
+        });
+    }catch(error){
+        console.log(error);
+        return res.json({
+            resul: false,
             
-//         });
-//     }   
+        });
+    }   
   
-//    }
+   }
 
 
  
@@ -121,7 +121,8 @@ GuardarProducto = async(req, res = response ) => {
   module.exports = {  
     CargarProductos ,
     ActualizarEstado,
-    GuardarProducto
+    GuardarProducto,
+    EliminarProducto
  
    
  }
