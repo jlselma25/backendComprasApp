@@ -107,14 +107,14 @@ GuardarProducto = async(req, res = response ) => {
 
 
 
-//   Status = async(req, res = response ) => {  
-//      return res.json({ resul: 1});
-//    }
+  Status = async(req, res = response ) => {  
+     return res.json({ resul: 1});
+   }
 
-//    Keepalive = async(req, res = response ) => {  
+   Keepalive = async(req, res = response ) => {  
      
-//     return res.status(200).send('OK');
-// }
+    return res.status(200).send('OK');
+}
 
 
 
@@ -122,7 +122,9 @@ GuardarProducto = async(req, res = response ) => {
     CargarProductos ,
     ActualizarEstado,
     GuardarProducto,
-    EliminarProducto
+    EliminarProducto,
+    Status,
+    Keepalive
  
    
  }

@@ -4,7 +4,9 @@ const {
 CargarProductos,
 ActualizarEstado,
 GuardarProducto,
-EliminarProducto
+EliminarProducto,
+Keepalive,
+Status
 
 } = require('../controllers/productos');
 
@@ -15,6 +17,8 @@ router.get('/CargarProductos/', CargarProductos );
 router.get('/ActualizarEstado/', ActualizarEstado );
 router.get('/GuardarProducto/', GuardarProducto );
 router.get('/EliminarProducto/', EliminarProducto );
+router.get('/Keepalive/', Keepalive );
+router.get('/Status/', Status );
 
 
 
