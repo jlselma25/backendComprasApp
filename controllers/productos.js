@@ -2,6 +2,7 @@
 
 const { response } = require('express');
 const { executeQuery } = require('../database/ejecutar');
+const moment = require('moment');
 
 
 
@@ -85,10 +86,14 @@ GuardarProducto = async(req, res = response ) => {
  
    ActualizarEstado = async(req, res = response ) => {
    
-    const { id , estado} = req.query;    
+    const { id , estado} = req.query;  
+    const ahora = new Date();  
+
+    // const fecha = formatoFecha(ahora,1);
+     const fechaFormateada = moment(ahora, 'DD/MM/YYYY HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
     try{      
             
-        const query ="UPDATE productos SET finalizado = " + estado + "  WHERE Id = " + id;
+        const query ="UPDATE productos SET finalizado = " + estado + ", fecha ='" + fechaFormateada + "'  WHERE Id = " + id;
 
         await executeQuery(query);  
         return res.json({
