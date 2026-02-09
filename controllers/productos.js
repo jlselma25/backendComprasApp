@@ -7,9 +7,7 @@ const moment = require('moment');
 
 
 CargarProductos = async(req, res = response ) => { 
-    try{        
-
-     
+    try{            
         
         const query = "SELECT id , nombre, finalizado FROM productos WHERE finalizado = false ORDER BY nombre";
        
@@ -58,33 +56,32 @@ GuardarProducto = async(req, res = response ) => {
 
 
 
-   EliminarProducto = async(req, res = response ) => {
+EliminarProducto = async(req, res = response ) => {
    
-    const { id} = req.query;    
-
-   
-   try{      
-        
-        const query ="DELETE FROM productos WHERE id =" + id;       
-                       
-        await executeQuery(query,process.env.IP);  
-         return res.json({
-            resul: true,
-            
-        });
-    }catch(error){
-        console.log(error);
-        return res.json({
-            resul: false,
-            
-        });
+    const { id , estado } = req.query;    
+    
+    try{      
+            // const query ="UPDATE productos SET finalizado = " + estado + ", fecha ='" + fechaFormateada + "'  WHERE Id = " + id;       
+            const query ="DELETE FROM productos WHERE id =" + id;  
+                                            
+            await executeQuery(query,process.env.IP);  
+            return res.json({
+                resul: true,
+                
+            });
+        }catch(error){
+            console.log(error);
+            return res.json({
+                resul: false,
+                
+            });
     }   
   
-   }
+}
 
 
  
-   ActualizarEstado = async(req, res = response ) => {
+ActualizarEstado = async(req, res = response ) => {
    
     const { id , estado} = req.query;  
     const ahora = new Date();  
@@ -94,6 +91,8 @@ GuardarProducto = async(req, res = response ) => {
     try{      
             
         const query ="UPDATE productos SET finalizado = " + estado + ", fecha ='" + fechaFormateada + "'  WHERE Id = " + id;
+        //const query ="UPDATE productos SET finalizado = " + estado + "  WHERE Id = " + id;
+
 
         await executeQuery(query);  
         return res.json({
