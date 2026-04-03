@@ -6,7 +6,8 @@ ActualizarEstado,
 GuardarProducto,
 EliminarProducto,
 Keepalive,
-Status
+Status,
+QuitarSeleccionados
 
 } = require('../controllers/productos');
 
@@ -19,6 +20,7 @@ router.get('/GuardarProducto/', GuardarProducto );
 router.get('/EliminarProducto/', EliminarProducto );
 router.get('/Keepalive/', Keepalive );
 router.get('/Status/', Status );
+router.get('/QuitarSeleccionados/', QuitarSeleccionados );
 
 
 

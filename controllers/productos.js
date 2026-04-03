@@ -121,6 +121,32 @@ ActualizarEstado = async(req, res = response ) => {
 }
 
 
+QuitarSeleccionados = async(req, res = response ) => {
+   
+    const { id , estado } = req.query;    
+    
+    try{      
+            // const query ="UPDATE productos SET finalizado = " + estado + ", fecha ='" + fechaFormateada + "'  WHERE Id = " + id;       
+            const query ="DELETE FROM productos WHERE finalizado = true ";  
+                                            
+            await executeQuery(query,process.env.IP);  
+            return res.json({
+                resul: true,
+                
+            });
+        }catch(error){
+            console.log(error);
+            return res.json({
+                resul: false,
+                
+            });
+    }   
+  
+}
+
+
+
+
 
   module.exports = {  
     CargarProductos ,
@@ -128,7 +154,8 @@ ActualizarEstado = async(req, res = response ) => {
     GuardarProducto,
     EliminarProducto,
     Status,
-    Keepalive
+    Keepalive,
+    QuitarSeleccionados
  
    
  }
